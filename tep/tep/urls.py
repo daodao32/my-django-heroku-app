@@ -25,6 +25,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tallyhq/', include('tallyhq.urls')),
+    path('restfulapi/', include('restfulapi_app.urls')),
     path('', TeacherLogin.as_view() ),  #send the '/'  url to the teacher login page
 
 ] 
