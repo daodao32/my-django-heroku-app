@@ -17,9 +17,20 @@ from datetime import datetime, timedelta, timezone
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from .serializers import PostSerializer
+from .models import *
 class RestfulApi(APIView):
-
+    # tempalte_name = 'restfulapi_app/apihome.html'
     def get(self,request,*args,**kwargs):
-        data={'a':'apple','b':'banana'}
+        sq=Post.objects.all()
+        serializer = PostSerializer(sq,many=True)
+        print(serializer)       
+        return Response(serializer.data)
 
-        return Response(data)
+    def post(self,request,*args,**kwargs):
+        serializer = PostSerializer(data=request.data, many=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)
