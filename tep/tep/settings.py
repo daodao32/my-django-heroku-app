@@ -220,6 +220,7 @@ django_heroku.settings(locals(),staticfiles=False)##PUT THIS BACK
 
 print("DATABASES IS (AFTER HEROKU CALL)",DATABASES)
 
-# This is new
+# This is new sdfsdf
 options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)rm -rf ~/.local/share/heroku/client
+options.pop('sslmode', None)
+
