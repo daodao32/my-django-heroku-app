@@ -105,25 +105,29 @@ WSGI_APPLICATION = 'tep.wsgi.application'
 
 
 #PRODUCTION=True ##TAKE THIS OUT, HIJACK
-MANUAL_DB_URL = "postgres://gjkkiztnavaqsz:6d3c2b8e246c278d07020d5d5cfe98df21fe6b46bd38a25c9549b6bd3e456a54@ec2-107-22-228-141.compute-1.amazonaws.com:5432/dcp9cstoo90ebv"
-FINAL_DB_URL = os.environ.get('HEROKU_POSTGRESQL_SILVER_URL',MANUAL_DB_URL)
-parsed_url = urlparse(FINAL_DB_URL)
-print("FINAL_DB_URL IS",FINAL_DB_URL)
+# MANUAL_DB_URL = "postgres://gjkkiztnavaqsz:6d3c2b8e246c278d07020d5d5cfe98df21fe6b46bd38a25c9549b6bd3e456a54@ec2-107-22-228-141.compute-1.amazonaws.com:5432/dcp9cstoo90ebv"
+# FINAL_DB_URL = os.environ.get('HEROKU_POSTGRESQL_SILVER_URL',MANUAL_DB_URL)
+# parsed_url = urlparse(FINAL_DB_URL)
+# print("FINAL_DB_URL IS",FINAL_DB_URL)
 
 if PRODUCTION == True:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': parsed_url.path.split('/')[-1],
-            'USER': parsed_url.username,
-            'PASSWORD':parsed_url.password,
-            'HOST': parsed_url.hostname,
-            'PORT': parsed_url.port,
-        },
-        'OPTIONS': {
-            'isolation_level': psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
-        }
-    }
+    ATABASES = {
+    'default': {
+        ...
+        'CONN_MAX_AGE': 500
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #         'NAME': parsed_url.path.split('/')[-1],
+    #         'USER': parsed_url.username,
+    #         'PASSWORD':parsed_url.password,
+    #         'HOST': parsed_url.hostname,
+    #         'PORT': parsed_url.port,
+    #     },
+    #     'OPTIONS': {
+    #         'isolation_level': psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
+    #     }
+    # }
 else:
     DATABASES = {
     'default': {
