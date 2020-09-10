@@ -20,6 +20,7 @@ PRODUCTION = True if HEROKU_PROD=="YES" else False
 DEBUG = False if HEROKU_PROD=="YES" else True
 
 
+
 ##############################################
 ####### HANDLE MEDIA STUFF HERE  #############
 ##############################################
@@ -221,4 +222,4 @@ print("DATABASES IS (AFTER HEROKU CALL)",DATABASES)
 
 # This is new
 options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)
+options.pop('sslmode', None)rm -rf ~/.local/share/heroku/client
