@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from tallyhq.views import TeacherLogin
+from restfulapi_app.views import RestfulApi
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tallyhq/', include('tallyhq.urls')),
     path('restfulapi/', include('restfulapi_app.urls')),
-    path('', TeacherLogin.as_view() ),  #send the '/'  url to the teacher login page
+    path('', RestfulApi.as_view() ), 
 
 ] 
 

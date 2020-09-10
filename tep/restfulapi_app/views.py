@@ -23,9 +23,9 @@ class RestfulApi(APIView):
     # tempalte_name = 'restfulapi_app/apihome.html'
     def get(self,request,*args,**kwargs):
         sq=Post.objects.all()
-        serializer = PostSerializer(sq,many=True)
-        print(serializer)       
+        serializer = PostSerializer(sq,many=True) 
         return Response(serializer.data)
+        
 
     def post(self,request,*args,**kwargs):
         serializer = PostSerializer(data=request.data, many=True)
