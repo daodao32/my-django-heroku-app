@@ -4,7 +4,7 @@ import datetime
 from corsheaders.defaults import default_headers
 import django_heroku
 from urllib.parse import urlparse
-
+import dj_database_url
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -218,3 +218,7 @@ django_heroku.settings(locals(),staticfiles=False)##PUT THIS BACK
 #django_heroku.settings(locals(),staticfiles=False,databases=False)
 
 print("DATABASES IS (AFTER HEROKU CALL)",DATABASES)
+
+# This is new
+options = DATABASES['default'].get('OPTIONS', {})
+options.pop('sslmode', None)
