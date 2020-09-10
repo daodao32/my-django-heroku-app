@@ -111,10 +111,8 @@ WSGI_APPLICATION = 'tep.wsgi.application'
 # print("FINAL_DB_URL IS",FINAL_DB_URL)
 
 if PRODUCTION == True:
-    DATABASES = {
-    'default': {
-        'CONN_MAX_AGE': 500
-    }}
+    DATABASES = {}
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
     # DATABASES = {
     #     'default': {
     #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
