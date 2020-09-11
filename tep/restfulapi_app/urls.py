@@ -3,7 +3,9 @@ from django.urls import path
 from django.views.generic import TemplateView
 from .views import *
 
+app_name = 'restfulapi_app'
 urlpatterns = [
-    path('apihome/', RestfulApi.as_view()),
+
+    path('apihome/', RestfulApi.as_view(), name='apihome'),
       path('home/', ProjectHome.as_view()),
 ]
