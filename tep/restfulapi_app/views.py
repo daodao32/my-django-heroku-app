@@ -34,3 +34,6 @@ class RestfulApi(APIView):
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
+
+class ProjectHome(TemplateView):
+    template_name='restfulapi_app/project_home.html'

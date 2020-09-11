@@ -5,4 +5,5 @@ from .views import *
 
 urlpatterns = [
     path('apihome/', RestfulApi.as_view()),
+      path('home/', ProjectHome.as_view()),
 ]
