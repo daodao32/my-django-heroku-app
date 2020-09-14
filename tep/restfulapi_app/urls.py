@@ -7,5 +7,5 @@ app_name = 'restfulapi_app'
 urlpatterns = [
 
     path('apihome/', RestfulApi.as_view(), name='apihome'),
-      path('home/', ProjectHome.as_view()),
+      path('home/', ProjectHome.as_view(),name='home'),
 ]
