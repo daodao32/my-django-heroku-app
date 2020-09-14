@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from restfulapi_app.views import RestfulApi
+from restfulapi_app.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -26,7 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tallyhq/', include('tallyhq.urls')),
     path('', include('restfulapi_app.urls',namespace="restfulapi_app")),
-    path('', RestfulApi.as_view() ), 
+    path('', ProjectHome.as_view() ), 
+    path('accounts/', include('allauth.urls') ),
 
 ] 
 

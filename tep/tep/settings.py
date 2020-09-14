@@ -65,6 +65,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.github',
+    # 'allauth.socialaccount.providers.facebook',
     'rest_framework',
     'tallyhq',
     'restfulapi_app',
@@ -76,7 +83,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',     
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -103,8 +110,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tep.wsgi.application'
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
 
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/home'
 #PRODUCTION=True ##TAKE THIS OUT, HIJACK
 # MANUAL_DB_URL = "postgres://gjkkiztnavaqsz:6d3c2b8e246c278d07020d5d5cfe98df21fe6b46bd38a25c9549b6bd3e456a54@ec2-107-22-228-141.compute-1.amazonaws.com:5432/dcp9cstoo90ebv"
 # FINAL_DB_URL = os.environ.get('HEROKU_POSTGRESQL_SILVER_URL',MANUAL_DB_URL)
