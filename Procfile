@@ -1,3 +1,3 @@
-release: python tep/manage.py migrate
-web: gunicorn tep.wsgi --chdir=tep/
+release: python backend/tep/manage.py migrate
+web: gunicorn tep.wsgi --chdir=backend/tep/
 
