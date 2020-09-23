@@ -3,10 +3,8 @@ from django.urls import path
 from django.views.generic import TemplateView
 from .views import *
 
-app_name = 'restfulapi_app'
-urlpatterns = [
+from rest_framework import routers
 
-    path('apihome/', RestfulApi.as_view(), name='apihome'),
-    path('apilistview/', PostListView.as_view(), name='apilistview'),
-    path('home/', ProjectHome.as_view(),name='home'),
-]
+router = routers.SimpleRouter()
+router.register(r'', PostViewset, basename='list')
+urlpatterns = router.urls

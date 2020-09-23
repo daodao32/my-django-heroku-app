@@ -17,6 +17,7 @@ from datetime import datetime, timedelta, timezone
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
+from rest_framework import viewsets
 
 from .serializers import PostSerializer
 from .models import *
@@ -36,10 +37,6 @@ class RestfulApi(APIView):
         else:
             return Response(serializer.errors)
 
-class PostListView(ListAPIView):
+class PostViewset(viewsets.ModelViewSet):
     queryset= Post.objects.all()
     serializer_class = PostSerializer
-
-
-class ProjectHome(TemplateView):
-    template_name='restfulapi_app/project_home.html'

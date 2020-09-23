@@ -1,0 +1,210 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+    <html>
+
+    <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
+    /> 
+ 
+    <meta name="theme-color" content="#ffffff" />
+    <title>Django--Duan</title>
+     <link rel="shortcut icon" type="image/svg" href="{%static "restfulapi_app/img/ninja.svg" %}"  sizes="32x32" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+    />
+        <title>Django--Duan</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  
+    <style type="text/css">
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      .ui.inverted.segment {
+        background-color: #777;
+      }
+
+      .ui.vertical.segment:not(.inverted) {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+
+      .six.wide.column img {
+        width: 100%;
+      }
+
+      .ui.borderless.inverted.menu {
+        background-color: #2f2f2f;
+        border-radius: 4px;
+        flex-wrap: wrap;
+      }
+
+      .ui.borderless.inverted.menu .active.item {
+        background-color: black;
+      }
+
+      span.sub {
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .ten.wide.column h1 {
+        font-size: 3rem;
+      }
+
+      .ten.wide.column p {
+        font-size: 1.5rem;
+      }
+
+      p code {
+        color: #c7254e;
+        background-color: #f9f2f4;
+        border-radius: 4px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+
+      .ui.tablet.computer.only.padded.grid {
+        position: absolute;
+        z-index: 8;
+        width: 100%;
+        top: 1rem;
+      }
+
+      .ui.mobile.only.grid .ui.menu .ui.vertical.menu {
+        display: none;
+      }
+
+      .ui.mobile.only.grid .ui.vertical.menu .dropdown.icon {
+        float: unset;
+      }
+
+      .ui.mobile.only.grid .ui.vertical.menu .dropdown.icon:before {
+        content: "\f0d7";
+      }
+
+      .ui.mobile.only.grid .ui.vertical.menu .ui.dropdown.item .menu {
+        position: static;
+        width: 100%;
+        background-color: unset;
+        border: none;
+      }
+
+      .ui.mobile.only.grid .ui.vertical.menu .ui.dropdown.item {
+        background-color: rgb(47, 47, 47);
+      }
+
+      .ui.mobile.only.grid .ui.vertical.menu .ui.dropdown.item .menu {
+        margin-top: 6px;
+      }
+
+      .ui.mobile.only.grid .ui.vertical.menu .ui.dropdown.item .menu .header,
+      .ui.mobile.only.grid .ui.vertical.menu .ui.dropdown.item .menu .item {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      .slide .ui.inverted.vertical.segment {
+        padding-top: 16rem;
+        padding-bottom: 4rem;
+        height: 600px;
+      }
+
+      .slide .ui.text.container {
+        max-width: 70%;
+      }
+
+      .slick-dotted.slick-slider {
+        margin-bottom: 0;
+      }
+
+      .slick-prev.slick-arrow {
+        padding-left: 8rem;
+        padding-right: calc(8rem + 20px);
+        display: inline-block;
+        height: 100%;
+        z-index: 32;
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.5) 0%,
+          rgba(0, 0, 0, 0.0001) 100%
+        );
+      }
+
+      .slick-next.slick-arrow {
+        padding-left: 8rem;
+        padding-right: calc(8rem + 20px);
+        display: inline-block;
+        height: 100%;
+        z-index: 32;
+        background: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0.5) 0%,
+          rgba(0, 0, 0, 0.0001) 100%
+        );
+      }
+
+      @media only screen and (max-width: 767px) {
+        .slick-prev.slick-arrow {
+          padding-left: 4rem;
+          padding-right: calc(4rem + 20px);
+        }
+
+        .slick-next.slick-arrow {
+          padding-left: 4rem;
+          padding-right: calc(4rem + 20px);
+        }
+      }
+
+      .slick-dots {
+        bottom: 15px;
+      }
+
+      .slide .ui.segment h1 {
+        font-size: 3rem;
+      }
+
+      .slide .ui.segment p {
+        font-size: 1.5rem;
+      }
+    </style>
+        {% block style %}
+        {% endblock %}
+    </head>
+
+    <body id="root">
+
+    {% block index %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    <br><br><br><br><br><br> <!-- LEAVE THESE HERE OR THE FOOTER WILL HIDE STUFF AT TEH BOTTOM OF PAGE -->
+
+    {% block js_content %}
+    {% endblock %}
+
+
+    </body>
+
+ 
+
+    </html>

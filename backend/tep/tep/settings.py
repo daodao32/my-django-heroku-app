@@ -1,7 +1,6 @@
 import os
 import psycopg2.extensions
 import datetime
-from corsheaders.defaults import default_headers
 import django_heroku
 from urllib.parse import urlparse
 import dj_database_url
@@ -75,6 +74,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'tallyhq',
     'restfulapi_app',
+    'home',
+    'corsheaders',
 
 ]
 
@@ -87,6 +88,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'tep.urls'
@@ -239,3 +241,23 @@ print("DATABASES IS (AFTER HEROKU CALL)",DATABASES)
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = [
+    "http://127.0.0.1:8000",
+    'http://localhost:3000' ,
+     'localhost',
+]
+
+CORS_ALLOW_HEADERS = (
+'accept',
+'accept-encoding',
+'authorization',
+'content-type',
+'dnt',
+'origin',
+'user-agent',
+'x-csrftoken',
+'x-requested-with',
+)

@@ -25,8 +25,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tallyhq/', include('tallyhq.urls')),
-    path('', include('restfulapi_app.urls',namespace="restfulapi_app")),
-    path('', ProjectHome.as_view() ), 
+    path('api/', include('restfulapi_app.urls')),
+    path('', include('home.urls',namespace="home")),
     path('accounts/', include('allauth.urls') ),
 
 ] 
